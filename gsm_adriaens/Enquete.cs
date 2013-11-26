@@ -41,7 +41,8 @@ namespace gsm_adriaens
         }
         public int getJa
         {
-            get { return Ja; }  
+            get { return Ja; }
+            set { Ja = value; }
         }
 
         public int getNee

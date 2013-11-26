@@ -13,7 +13,7 @@ namespace gsm_adriaens
     public partial class Form1 : Form
     {
         Enquete enquete = new Enquete();
-        FoutControle fout = new FoutControle();
+        int aantal = 0;
       
         public Form1()
         {
@@ -21,12 +21,8 @@ namespace gsm_adriaens
 
         }
 
-        int aantal = 0;
-
-
         private void btOkAantal_Click(object sender, EventArgs e)
         {
-            gsm_adriaens.FoutControle.errors(tbAntwoord.Text);
             tbAntwoord.Enabled = true;
             tbAntwoord.Focus();
             {
@@ -57,15 +53,18 @@ namespace gsm_adriaens
 
         private void btOkGebruik_Click(object sender, EventArgs e)
         {
-            
+            bool check;
             enquete.getAntwoord = (tbAntwoord.Text);
-            fout.fout = (tbAntwoord.Text);
             
+            check = gsm_adriaens.FoutControle.errors(tbAntwoord.Text);
 
-            aantal--;
-            tbAntwoord.ResetText();
-            tbAntwoord.Focus();
-
+            if (check)
+            {
+                aantal--;
+                tbAntwoord.ResetText();
+                tbAntwoord.Focus();
+            }
+            
             if (aantal == 0)
             {
 
@@ -90,6 +89,10 @@ namespace gsm_adriaens
 
         private void btReset_Click(object sender, EventArgs e)
         {
+
+            enquete.getJa = 0;
+
+
             tbDeelnemers.ResetText();
             tbDeelnemers.Enabled = true;
             tbAntwoord.Enabled = false;

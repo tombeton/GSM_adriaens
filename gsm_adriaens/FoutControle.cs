@@ -9,32 +9,24 @@ namespace gsm_adriaens
 {
     class FoutControle
     {
-        public string fout = "";
-
-        public FoutControle()
-        {
-            Convert.ToString(fout).ToLower();
-            if (fout != "j" || fout != "n" || fout != "o")
-            {
-                MessageBox.Show("Dit is geen geldige invoer");
-            
-            }
-        }
 
         public static bool errors(string input) 
         {
             bool check;
 
-            if (input == "j")
+            input = Convert.ToString(input).ToLower();
+
+            if (input == "j" || input == "n" || input == "o")
             {
                 check = true;
             }
-            else check = false;
-
+            else 
+            {
+                check = false;
+                MessageBox.Show("Dit is geen geldige invoer");
+            }
             return check;
         }
-
     }
-
 }
 
