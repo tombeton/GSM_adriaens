@@ -26,7 +26,7 @@ namespace gsm_adriaens
 
         private void btOkAantal_Click(object sender, EventArgs e)
         {
-
+            gsm_adriaens.FoutControle.errors(tbAntwoord.Text);
             tbAntwoord.Enabled = true;
             tbAntwoord.Focus();
             {

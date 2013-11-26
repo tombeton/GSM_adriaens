@@ -21,6 +21,19 @@ namespace gsm_adriaens
             }
         }
 
+        public static bool errors(string input) 
+        {
+            bool check;
+
+            if (input == "j")
+            {
+                check = true;
+            }
+            else check = false;
+
+            return check;
+        }
+
     }
 
 }
